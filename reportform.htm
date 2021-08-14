@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+   <link rel="stylesheet" href="" />
+    <title>Document |</title>
+    <style type="text/css">
+      body{
+        background-color:skyblue;
+
+      }
+     </style>
+  </head>
+  <center>
+  <body>
+    
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-8">
+          <table border="1" bgcolor="silver">
+          <h1>input student marks:</h1>
+          <hr />
+          <div class="row">
+            <div class="col-6">
+              <tr><td><label for="maths" class="form-label">Maths</label></td><td>
+              <input
+                type="text"
+                name="maths"
+                id="maths"
+                required=""
+
+              /></td></tr>
+             <tr><td> <label for="kiswa" class="form-label">Kiswa</label></td><td>
+              <input
+                type="text"
+                 name="Kiswa"
+                id="kiswahili"
+               
+              /></td></tr>
+              <div class="col-6">
+              <tr><td><label for="english" class="form-label">English</label></td><td>
+              <input
+                type="text"
+                name="English"
+                id="english"
+                
+              /></td></tr>
+             <tr><td> <label for="social studies" class="form-label">Social studies/CRE</label></td><td>
+              <input
+                type="text"
+                 name="sst"
+                id="sst"
+                
+              /></td></tr>
+            </div>
+           
+             <tr><td> <label for="science" class="form-label">Science</label></td><td>
+              <input
+                type="text"
+                name="science"
+                id="science"
+               
+              /></td></tr>
+            </div>
+          </div>
+         <tr><td colspan="2"> <input
+            
+            id="enter"
+            type="button"
+            value="Submit"
+
+          /></td></tr>
+        
+
+        <div class="col-sm-4">
+          <div class="card">
+            <div
+              class="card-header text-white"
+              style="background-color: #3664f4"
+            >
+          </div>
+        </div></div></table>
+          
+              <h3>Results</h3>
+            
+            <div class="card-body">
+              <table border="1" bgcolor="grey">
+              <tr><td><label for="total" class="form-label">Total</label></td><td>
+              <input
+                type="text"
+                class="form-control mb-4"
+                name="total"
+                id="total"
+             
+                readonly
+              /></td></tr>
+             <tr><td> <label for="avg" class="form-label">Average</label></td><td>
+              <input
+                type="text"
+                class="form-control mb-4"
+                name="avg"
+                id="avg"
+                readonly
+              /></td></tr>
+              <tr><td><label for="grade" class="form-label">Grade</label></td><td>
+              <input
+                type="text"
+                 name="grade"
+                id="grade"
+                readonly
+              /></td></tr>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script>
+      document.querySelector("#maths").focus();
+      document.querySelector("#maths").onkeyup = function (e) {
+        if (e.keyCode === 13) {
+        
+          document.querySelector("#enter").click();
+        }
+      };
+
+      document.querySelector("#enter").onclick = function (e) {
+        var maths = parseFloat(document.querySelector("#maths").value);
+        var english = parseFloat(document.querySelector("#english").value);
+        var kiswahili = parseFloat(document.querySelector("#kiswahili").value);
+        var science = parseFloat(document.querySelector("#science").value);
+        var sst = parseFloat(document.querySelector("#sst").value);
+        var total = maths + english + science + sst + kiswahili;
+        console.log(total);
+        var totalMarks = document.getElementById("total");
+        totalMarks.value = total;
+        average = total / 5;
+        console.log(average);
+        var averageMarks = document.getElementById("avg");
+        averageMarks.value = average;
+        var studentGrade = document.getElementById("grade");
+        var grade;
+        if (average >= 81 && average <= 100) {
+          grade = "A";
+          studentGrade.value = grade;
+        } else if (average >= 74 && average < 81) {
+          grade = "A-";
+          studentGrade.value = grade;
+        } else if (average >= 69 && average < 74) {
+          grade = "B+";
+          studentGrade.value = grade;
+        } else if (average >= 61 && average < 69) {
+          grade = "B";
+          studentGrade.value = grade;
+        } else if (average >= 54 && average < 61) {
+          grade = "B-";
+          studentGrade.value = grade;
+        } else if (average >= 46 && average < 54) {
+          grade = "C+";
+          studentGrade.value = grade;
+        } else if (average >= 39 && average < 46) {
+          grade = "C";
+          studentGrade.value = grade;
+        } else if (average >= 33 && average < 39) {
+          grade = "C-";
+          studentGrade.value = grade;
+        } else if (average >= 26 && average < 33) {
+          grade = "D+";
+          studentGrade.value = grade;
+        } else if (average >= 20 && average < 26) {
+          grade = "D";
+          studentGrade.value = grade;
+        } else if (average >= 0 && average < 20) {
+          grade = "E";
+          studentGrade.value = grade;
+        } else if (average < 0 && average > 100) {
+          grade = "Invalid Marks";
+          studentGrade.value = grade;
+        } else {
+          grade = "Invalid Marks";
+          studentGrade.value = grade;
+        }
+      };
+    </script>
+  </body>
+</center>
+</html>
